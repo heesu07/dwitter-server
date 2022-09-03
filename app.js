@@ -29,10 +29,11 @@ app.use((error, req, res, next) => {
   res.sendStatus(500);
 });
 
-connectDB().then( () => {
-  console.log('init db');
-  const server = app.listen(config.host.port);
-  initSocket(server);
-}).catch(console.error)
+connectDB()
+  .then(() => {
+    console.log('init db');
+    const server = app.listen(config.host.port);
+    initSocket(server);
+  }).catch(console.error)
 
 
